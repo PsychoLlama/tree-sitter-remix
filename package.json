@@ -1,0 +1,29 @@
+{
+  "name": "tree-sitter-remix",
+  "version": "0.0.0",
+  "description": "remix grammar for tree-sitter",
+  "main": "bindings/node",
+  "license": "MIT",
+  "keywords": [
+    "parsing",
+    "incremental",
+    "remix"
+  ],
+  "dependencies": {
+    "nan": "^2.12.1",
+    "node-gyp": "^9.3.1"
+  },
+  "scripts": {
+    "test": "tree-sitter test",
+    "build:gyp": "node-gyp rebuild",
+    "build:ts": "tree-sitter generate --abi 13"
+  },
+  "tree-sitter": [
+    {
+      "scope": "source.rem",
+      "file-types": [
+        "remix"
+      ]
+    }
+  ]
+}
