@@ -1,0 +1,29 @@
+================
+Number constant
+================
+
+value = 10
+
+---
+
+(source_file
+  (assignment
+    identifier: (identifier)
+    value: (number)))
+
+===================
+Multiple constants
+===================
+
+first = 1
+second = 2
+
+---
+
+(source_file
+  (assignment
+    identifier: (identifier)
+    value: (number))
+  (assignment
+    identifier: (identifier)
+    value: (number)))
