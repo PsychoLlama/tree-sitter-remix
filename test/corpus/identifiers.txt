@@ -1,0 +1,90 @@
+========================
+Traditional Identifiers
+========================
+
+name = true
+under_score = true
+kebab-case = true
+_private = true
+x = true
+
+----
+
+(source_file
+  (assignment
+    identifier: (identifier)
+    value: (boolean))
+  (assignment
+    identifier: (identifier)
+    value: (boolean))
+  (assignment
+    identifier: (identifier)
+    value: (boolean))
+  (assignment
+    identifier: (identifier)
+    value: (boolean))
+  (assignment
+    identifier: (identifier)
+    value: (boolean)))
+
+==========================
+Identifiers with capitals
+==========================
+
+camelCase = true
+PascalCase = true
+ALL_CAPS = true
+
+---
+
+(source_file
+  (assignment
+    identifier: (identifier)
+    value: (boolean))
+  (assignment
+    identifier: (identifier)
+    value: (boolean))
+  (assignment
+    identifier: (identifier)
+    value: (boolean)))
+
+=========================
+Identifiers with numbers
+=========================
+
+trailing-number012 = true
+middle_1Number = true
+
+---
+
+(source_file
+  (assignment
+    identifier: (identifier)
+    value: (boolean))
+  (assignment
+    identifier: (identifier)
+    value: (boolean)))
+
+====================
+Invalid identifiers
+====================
+
+0leadingnumber = true
+-leadinghyphen = true
+
+---
+
+(source_file
+  (ERROR
+    (number))
+
+  (assignment
+    identifier: (identifier)
+    value: (boolean))
+
+  (ERROR
+    (UNEXPECTED '-'))
+
+  (assignment
+    identifier: (identifier)
+    value: (boolean)))
