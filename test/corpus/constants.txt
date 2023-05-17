@@ -7,7 +7,7 @@ value = 10
 ---
 
 (source_file
-  (assignment
+  (definition
     identifier: (identifier)
     value: (number)))
 
@@ -21,9 +21,9 @@ second = 2
 ---
 
 (source_file
-  (assignment
+  (definition
     identifier: (identifier)
     value: (number))
-  (assignment
+  (definition
     identifier: (identifier)
     value: (number)))

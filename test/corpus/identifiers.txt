@@ -11,19 +11,19 @@ x = true
 ----
 
 (source_file
-  (assignment
+  (definition
     identifier: (identifier)
     value: (boolean))
-  (assignment
+  (definition
     identifier: (identifier)
     value: (boolean))
-  (assignment
+  (definition
     identifier: (identifier)
     value: (boolean))
-  (assignment
+  (definition
     identifier: (identifier)
     value: (boolean))
-  (assignment
+  (definition
     identifier: (identifier)
     value: (boolean)))
 
@@ -38,13 +38,13 @@ ALL_CAPS = true
 ---
 
 (source_file
-  (assignment
+  (definition
     identifier: (identifier)
     value: (boolean))
-  (assignment
+  (definition
     identifier: (identifier)
     value: (boolean))
-  (assignment
+  (definition
     identifier: (identifier)
     value: (boolean)))
 
@@ -58,10 +58,10 @@ middle_1Number = true
 ---
 
 (source_file
-  (assignment
+  (definition
     identifier: (identifier)
     value: (boolean))
-  (assignment
+  (definition
     identifier: (identifier)
     value: (boolean)))
 
@@ -78,13 +78,13 @@ Invalid identifiers
   (ERROR
     (number))
 
-  (assignment
+  (definition
     identifier: (identifier)
     value: (boolean))
 
   (ERROR
     (UNEXPECTED '-'))
 
-  (assignment
+  (definition
     identifier: (identifier)
     value: (boolean)))

@@ -8,10 +8,10 @@ second = false
 ---
 
 (source_file
-  (assignment
+  (definition
     identifier: (identifier)
     value: (boolean))
-  (assignment
+  (definition
     identifier: (identifier)
     value: (boolean)))
 
@@ -28,16 +28,16 @@ fourth = 111.0
 
 ; Decimal points must be surrounded by at least one digit.
 (source_file
-  (assignment
+  (definition
     identifier: (identifier)
     value: (number))
-  (assignment
+  (definition
     identifier: (identifier)
     value: (number))
-  (assignment
+  (definition
     identifier: (identifier)
     value: (number))
-  (assignment
+  (definition
     identifier: (identifier)
     value: (number)))
 
@@ -53,18 +53,18 @@ weird = "with-!@#$%^&*()?/|{}[]`~'<>:;,.symbols"
 ---
 
 (source_file
-  (assignment
+  (definition
     identifier: (identifier)
     value: (string))
-  (assignment
+  (definition
     identifier: (identifier)
     value: (string
       (string_fragment)))
-  (assignment
+  (definition
     identifier: (identifier)
     value: (string
       (string_fragment)))
-  (assignment
+  (definition
     identifier: (identifier)
     value: (string
       (string_fragment))))
@@ -83,27 +83,27 @@ surrounded = "with \"surrounding\" quotes"
 ---
 
 (source_file
-  (assignment
+  (definition
     identifier: (identifier)
     value: (string
       (escape_sequence)))
-  (assignment
+  (definition
     identifier: (identifier)
     value: (string
       (escape_sequence)))
-  (assignment
+  (definition
     identifier: (identifier)
     value: (string
       (escape_sequence)))
-  (assignment
+  (definition
     identifier: (identifier)
     value: (string
       (escape_sequence)))
-  (assignment
+  (definition
     identifier: (identifier)
     value: (string
       (escape_sequence)))
-  (assignment
+  (definition
     identifier: (identifier)
     value: (string
       (string_fragment)

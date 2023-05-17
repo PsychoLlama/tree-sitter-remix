@@ -4,9 +4,9 @@ module.exports = grammar({
   word: ($) => $.identifier,
 
   rules: {
-    source_file: ($) => repeat($.assignment),
+    source_file: ($) => repeat($.definition),
     identifier: () => /[a-zA-Z_][0-9a-zA-Z_-]*/,
-    assignment: ($) =>
+    definition: ($) =>
       seq(field("identifier", $.identifier), "=", field("value", $._primitive)),
 
     // Primitives
