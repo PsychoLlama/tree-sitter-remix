@@ -20,6 +20,7 @@ module.exports = grammar({
 
     // Primitives
     _primitive: ($) => choice($.string, $.number, $.boolean),
+    _literal: ($) => choice($._primitive, $.tuple),
 
     number: () => /\d+(\.\d+)?/,
     boolean: () => choice("true", "false"),
@@ -28,10 +29,37 @@ module.exports = grammar({
     string: ($) =>
       seq('"', repeat(choice($.string_fragment, $.escape_sequence)), '"'),
 
+    // Collections
+    tuple: ($) =>
+      choice(
+        seq(
+          "(",
+          field(
+            "elements",
+            choice(
+              seq(), // Unit
+
+              // Tuples must have 0,2+ elements. 1-element tuples are not
+              // allowed.
+              seq(
+                seq($._tuple_element, ","),
+                repeat1(choice($._tuple_element, seq($._tuple_element, ",")))
+              )
+            )
+          ),
+          ")"
+        )
+      ),
+
+    // Tuples can't contain arbitrary expressions. The grammar would get
+    // weird.
+    _tuple_element: ($) => choice($._literal, $.identifier),
+
     // Expressions
     _expression: ($) =>
       choice(
         $.call_expression,
+        $.tuple,
         $._primitive,
         $._parenthesized_expression,
         prec(precedence.identifier, $.identifier)

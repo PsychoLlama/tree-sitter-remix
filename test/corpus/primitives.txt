@@ -111,3 +111,52 @@ surrounded = "with \"surrounding\" quotes"
       (string_fragment)
       (escape_sequence)
       (string_fragment))))
+
+=======
+Tuples
+=======
+
+unit = ()
+double = (0, x)
+triple = (5, "string", true)
+
+---
+
+(source_file
+  (definition
+    identifier: (identifier)
+    value: (tuple))
+  (definition
+    identifier: (identifier)
+    value: (tuple
+      elements: (number)
+      elements: (identifier)))
+  (definition
+    identifier: (identifier)
+    value: (tuple
+      elements: (number)
+      elements: (string
+        (string_fragment))
+      elements: (boolean))))
+
+==============
+Nested tuples
+==============
+
+nested = (0, (1, 2), (3, (4, 5)))
+
+-----
+
+(source_file
+  (definition
+    identifier: (identifier)
+    value: (tuple
+      elements: (number)
+      elements: (tuple
+        elements: (number)
+        elements: (number))
+      elements: (tuple
+        elements: (number)
+        elements: (tuple
+          elements: (number)
+          elements: (number))))))
