@@ -8,10 +8,10 @@ second = false
 ---
 
 (source_file
-  (definition
+  (constant
     identifier: (identifier)
     value: (boolean))
-  (definition
+  (constant
     identifier: (identifier)
     value: (boolean)))
 
@@ -28,16 +28,16 @@ fourth = 111.0
 
 ; Decimal points must be surrounded by at least one digit.
 (source_file
-  (definition
+  (constant
     identifier: (identifier)
     value: (number))
-  (definition
+  (constant
     identifier: (identifier)
     value: (number))
-  (definition
+  (constant
     identifier: (identifier)
     value: (number))
-  (definition
+  (constant
     identifier: (identifier)
     value: (number)))
 
@@ -53,18 +53,18 @@ weird = "with-!@#$%^&*()?/|{}[]`~'<>:;,.symbols"
 ---
 
 (source_file
-  (definition
+  (constant
     identifier: (identifier)
     value: (string))
-  (definition
+  (constant
     identifier: (identifier)
     value: (string
       (string_fragment)))
-  (definition
+  (constant
     identifier: (identifier)
     value: (string
       (string_fragment)))
-  (definition
+  (constant
     identifier: (identifier)
     value: (string
       (string_fragment))))
@@ -83,27 +83,27 @@ surrounded = "with \"surrounding\" quotes"
 ---
 
 (source_file
-  (definition
+  (constant
     identifier: (identifier)
     value: (string
       (escape_sequence)))
-  (definition
+  (constant
     identifier: (identifier)
     value: (string
       (escape_sequence)))
-  (definition
+  (constant
     identifier: (identifier)
     value: (string
       (escape_sequence)))
-  (definition
+  (constant
     identifier: (identifier)
     value: (string
       (escape_sequence)))
-  (definition
+  (constant
     identifier: (identifier)
     value: (string
       (escape_sequence)))
-  (definition
+  (constant
     identifier: (identifier)
     value: (string
       (string_fragment)
@@ -123,15 +123,15 @@ triple = (5, "string", true)
 ---
 
 (source_file
-  (definition
+  (constant
     identifier: (identifier)
     value: (tuple))
-  (definition
+  (constant
     identifier: (identifier)
     value: (tuple
       elements: (number)
       elements: (identifier)))
-  (definition
+  (constant
     identifier: (identifier)
     value: (tuple
       elements: (number)
@@ -148,7 +148,7 @@ nested = (0, (1, 2), (3, (4, 5)))
 -----
 
 (source_file
-  (definition
+  (constant
     identifier: (identifier)
     value: (tuple
       elements: (number)

@@ -9,9 +9,9 @@ module.exports = grammar({
   word: ($) => $.identifier,
 
   rules: {
-    source_file: ($) => repeat($.definition),
+    source_file: ($) => repeat(choice($.constant, $.function)),
     identifier: () => /[a-zA-Z_][0-9a-zA-Z_-]*/,
-    definition: ($) =>
+    constant: ($) =>
       seq(
         field("identifier", $.identifier),
         "=",
@@ -74,6 +74,15 @@ module.exports = grammar({
           field("callee", choice($.identifier, $._parenthesized_expression)),
           field("arguments", repeat1($._expression))
         )
+      ),
+
+    // Functions
+    function: ($) =>
+      seq(
+        field("identifier", $.identifier),
+        field("parameters", repeat1($.identifier)),
+        "=",
+        field("body", $._expression)
       ),
   },
 });

@@ -7,7 +7,7 @@ value = 10
 ---
 
 (source_file
-  (definition
+  (constant
     identifier: (identifier)
     value: (number)))
 
@@ -21,9 +21,24 @@ second = 2
 ---
 
 (source_file
-  (definition
+  (constant
     identifier: (identifier)
     value: (number))
-  (definition
+  (constant
     identifier: (identifier)
     value: (number)))
+
+====================
+Function definition
+====================
+
+first a b = a
+
+---
+
+(source_file
+  (function
+    identifier: (identifier)
+    parameters: (identifier)
+    parameters: (identifier)
+    body: (identifier)))
