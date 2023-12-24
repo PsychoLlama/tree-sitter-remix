@@ -32,16 +32,30 @@
           ];
         });
 
-      packages = eachSystem (system: pkgs: {
-        default = pkgs.callPackage
-          "${pkgs.path}/pkgs/development/tools/parsing/tree-sitter/grammar.nix"
-          { } {
-            language = "tree-sitter-remix";
-            version = "latest";
-            src = self;
-            location = null;
-            generate = true;
-          };
+      overlays.custom-grammars = _: pkgs: {
+        tree-sitter = pkgs.lib.recursiveUpdate pkgs.tree-sitter {
+          builtGrammars.tree-sitter-remix =
+            self.packages.${pkgs.system}.tree-sitter-remix;
+        };
+      };
+
+      packages = eachSystem (system: pkgs: rec {
+        default = tree-sitter-remix;
+
+        # Compiles to match others in `pkgs.tree-sitter.builtGrammars`.
+        tree-sitter-remix = pkgs.tree-sitter.buildGrammar {
+          language = "remix";
+          version = self.shortRev or "latest";
+          src = self;
+          generate = true;
+        };
+
+        # NOTE: This depends on `nvim-treesitter`. Make sure it's installed.
+        remix-nvim = pkgs.vimUtils.buildVimPlugin {
+          pname = "remix-nvim";
+          src = "${self}/vim";
+          version = self.shortRev or "latest";
+        };
       });
     };
 }
