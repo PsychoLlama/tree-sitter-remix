@@ -31,5 +31,17 @@
             (yarn.override { inherit nodejs; })
           ];
         });
+
+      packages = eachSystem (system: pkgs: {
+        default = pkgs.callPackage
+          "${pkgs.path}/pkgs/development/tools/parsing/tree-sitter/grammar.nix"
+          { } {
+            language = "tree-sitter-remix";
+            version = "latest";
+            src = self;
+            location = null;
+            generate = true;
+          };
+      });
     };
 }
