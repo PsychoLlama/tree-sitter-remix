@@ -4,6 +4,7 @@
   "description": "remix grammar for tree-sitter",
   "main": "bindings/node",
   "license": "MIT",
+  "types": "./types.d.ts",
   "keywords": [
     "parsing",
     "incremental",
