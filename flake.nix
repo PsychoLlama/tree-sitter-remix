@@ -23,12 +23,11 @@
     in {
       devShell = eachSystem (system: pkgs:
         pkgs.mkShell {
-          nativeBuildInputs = with pkgs; [
+          packages = with pkgs; [
             rust-bin.stable.latest.default
             tree-sitter
             python3 # For node-gyp
             nodejs
-            (yarn.override { inherit nodejs; })
           ];
         });
 
