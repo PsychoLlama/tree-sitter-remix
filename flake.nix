@@ -28,6 +28,7 @@
             tree-sitter
             python3 # For node-gyp
             nodejs
+            just
           ];
         });
 

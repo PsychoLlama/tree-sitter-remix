@@ -16,12 +16,11 @@
   },
   "scripts": {
     "test": "tree-sitter test",
-    "build:gyp": "node-gyp rebuild",
-    "build:ts": "tree-sitter generate --abi 13"
+    "build:gyp": "node-gyp rebuild"
   },
   "tree-sitter": [
     {
-      "scope": "source.rem",
+      "scope": "text.remix",
       "file-types": [
         "remix"
       ]
