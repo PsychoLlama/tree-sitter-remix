@@ -2,65 +2,57 @@
 Call identifier with literal argument
 =====================================
 
-x = f 1
+f 1
 
 ---
 
 (source_file
-  (constant
-    identifier: (identifier)
-    value: (call_expression
-      callee: (identifier)
-      arguments: (number))))
+  (call_expression
+    callee: (identifier)
+    arguments: (number)))
 
 =======================================
 Call identifier with multiple arguments
 =======================================
 
-x = f 1 2 3
+f 1 2 3
 
 ---
 
 (source_file
-  (constant
-    identifier: (identifier)
-    value: (call_expression
-      callee: (identifier)
-      arguments: (number)
-      arguments: (number)
-      arguments: (number))))
+  (call_expression
+    callee: (identifier)
+    arguments: (number)
+    arguments: (number)
+    arguments: (number)))
 
 ==================================
 Call function with expression args
 ==================================
 
-x = f (f 1)
+f (f 1)
 
 ---
 
 (source_file
-  (constant
-    identifier: (identifier)
-    value: (call_expression
+  (call_expression
+    callee: (identifier)
+    arguments: (call_expression
       callee: (identifier)
-      arguments: (call_expression
-        callee: (identifier)
-        arguments: (number)))))
+      arguments: (number))))
 
 =============================================
 Call expression where callee is an expression
 =============================================
 
-x = (f 1) 2 3
+(f 1) 2 3
 
 ---
 
 (source_file
-  (constant
-    identifier: (identifier)
-    value: (call_expression
-      callee: (call_expression
-        callee: (identifier)
-        arguments: (number))
-      arguments: (number)
-      arguments: (number))))
+  (call_expression
+    callee: (call_expression
+      callee: (identifier)
+      arguments: (number))
+    arguments: (number)
+    arguments: (number)))

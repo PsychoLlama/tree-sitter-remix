@@ -32,14 +32,22 @@ let x = 10; y = 20; in x
     body: (identifier)))
 
 ==============================
-No variable assignment (fails)
+Bindings inside other bindings
 ==============================
 
-let in 10
+let x =
+  let y = 10; in y;
+in x
 
 ---
 
 (source_file
-  (ERROR
-    (identifier)
-    (number)))
+  (bind_expression
+    bindings: (assignment
+      identifier: (identifier)
+      value: (bind_expression
+        bindings: (assignment
+          identifier: (identifier)
+          value: (number))
+        body: (identifier)))
+    body: (identifier)))

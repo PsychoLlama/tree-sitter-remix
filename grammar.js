@@ -9,16 +9,8 @@ module.exports = grammar({
   word: ($) => $.identifier,
 
   rules: {
-    source_file: ($) =>
-      repeat(choice($.bind_expression, $.constant, $.function)),
-
+    source_file: ($) => $._expression,
     identifier: () => /[a-zA-Z_][0-9a-zA-Z_-]*/,
-    constant: ($) =>
-      seq(
-        field("identifier", $.identifier),
-        "=",
-        field("value", $._expression)
-      ),
 
     // Primitives
     _primitive: ($) => choice($.string, $.number, $.boolean),
@@ -62,6 +54,7 @@ module.exports = grammar({
       choice(
         $.call_expression,
         $.tuple,
+        $.bind_expression,
         $._primitive,
         $._parenthesized_expression,
         prec(precedence.identifier, $.identifier)

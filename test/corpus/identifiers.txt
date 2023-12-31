@@ -2,89 +2,106 @@
 Traditional Identifiers
 ========================
 
-name = true
-under_score = true
-kebab-case = true
-_private = true
-x = true
+let
+  name = true;
+  under_score = true;
+  kebab-case = true;
+  _private = true;
+  x = true;
+in true
 
-----
+---
 
 (source_file
-  (constant
-    identifier: (identifier)
-    value: (boolean))
-  (constant
-    identifier: (identifier)
-    value: (boolean))
-  (constant
-    identifier: (identifier)
-    value: (boolean))
-  (constant
-    identifier: (identifier)
-    value: (boolean))
-  (constant
-    identifier: (identifier)
-    value: (boolean)))
+  (bind_expression
+    bindings: (assignment
+      identifier: (identifier)
+      value: (boolean))
+    bindings: (assignment
+      identifier: (identifier)
+      value: (boolean))
+    bindings: (assignment
+      identifier: (identifier)
+      value: (boolean))
+    bindings: (assignment
+      identifier: (identifier)
+      value: (boolean))
+    bindings: (assignment
+      identifier: (identifier)
+      value: (boolean))
+    body: (boolean)))
 
 ==========================
 Identifiers with capitals
 ==========================
 
-camelCase = true
-PascalCase = true
-ALL_CAPS = true
+let
+  camelCase = true;
+  PascalCase = true;
+  ALL_CAPS = true;
+in true
 
 ---
 
 (source_file
-  (constant
-    identifier: (identifier)
-    value: (boolean))
-  (constant
-    identifier: (identifier)
-    value: (boolean))
-  (constant
-    identifier: (identifier)
-    value: (boolean)))
+  (bind_expression
+    bindings: (assignment
+      identifier: (identifier)
+      value: (boolean))
+    bindings: (assignment
+      identifier: (identifier)
+      value: (boolean))
+    bindings: (assignment
+      identifier: (identifier)
+      value: (boolean))
+    body: (boolean)))
 
 =========================
 Identifiers with numbers
 =========================
 
-trailing-number012 = true
-middle_1Number = true
+let
+  trailing-number012 = true;
+  middle_1Number = true;
+in true
 
 ---
 
 (source_file
-  (constant
+  (bind_expression
+  bindings: (assignment
     identifier: (identifier)
     value: (boolean))
-  (constant
+  bindings: (assignment
     identifier: (identifier)
-    value: (boolean)))
+    value: (boolean))
+  body: (boolean)))
 
 ====================
 Invalid identifiers
 ====================
 
-0leadingnumber = true
--leadinghyphen = true
+let
+  0leadingnumber = true;
+  -leadinghyphen = true;
+in true
 
 ---
 
 (source_file
-  (ERROR
-    (number))
+  (bind_expression
 
-  (constant
+  (ERROR (number))
+
+  bindings: (assignment
     identifier: (identifier)
     value: (boolean))
 
   (ERROR
     (UNEXPECTED '-'))
 
-  (constant
+  bindings: (assignment
     identifier: (identifier)
-    value: (boolean)))
+    value: (boolean))
+
+  body: (boolean)))

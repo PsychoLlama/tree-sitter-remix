@@ -1,162 +1,180 @@
-=========
+========
 Booleans
-=========
+========
 
-first = true
-second = false
+let
+  first = true;
+  second = false;
+in ()
 
 ---
 
 (source_file
-  (constant
-    identifier: (identifier)
-    value: (boolean))
-  (constant
-    identifier: (identifier)
-    value: (boolean)))
+  (bind_expression
+    bindings: (assignment
+      identifier: (identifier)
+      value: (boolean))
+    bindings: (assignment
+      identifier: (identifier)
+      value: (boolean))
+    body: (tuple)))
 
-========
+=======
 Numbers
-========
+=======
 
-first = 1234567890
-second = 1.0
-third = 0.0000
-fourth = 111.0
+let
+  first = 1234567890;
+  second = 1.0;
+  third = 0.0000;
+  fourth = 111.0;
+in ()
 
 ---
 
 ; Decimal points must be surrounded by at least one digit.
 (source_file
-  (constant
-    identifier: (identifier)
-    value: (number))
-  (constant
-    identifier: (identifier)
-    value: (number))
-  (constant
-    identifier: (identifier)
-    value: (number))
-  (constant
-    identifier: (identifier)
-    value: (number)))
+  (bind_expression
+    bindings: (assignment
+      identifier: (identifier)
+      value: (number))
+    bindings: (assignment
+      identifier: (identifier)
+      value: (number))
+    bindings: (assignment
+      identifier: (identifier)
+      value: (number))
+    bindings: (assignment
+      identifier: (identifier)
+      value: (number))
+    body: (tuple)))
 
-========
+=======
 Strings
-========
+=======
 
-empty = ""
-single = "a"
-multiple = "with content"
-weird = "with-!@#$%^&*()?/|{}[]`~'<>:;,.symbols"
+let
+  empty = "";
+  single = "a";
+  multiple = "with content";
+  weird = "with-!@#$%^&*()?/|{}[]`~'<>:;,.symbols";
+in ()
 
 ---
 
 (source_file
-  (constant
-    identifier: (identifier)
-    value: (string))
-  (constant
-    identifier: (identifier)
-    value: (string
-      (string_fragment)))
-  (constant
-    identifier: (identifier)
-    value: (string
-      (string_fragment)))
-  (constant
-    identifier: (identifier)
-    value: (string
-      (string_fragment))))
+  (bind_expression
+    bindings: (assignment
+      identifier: (identifier)
+      value: (string))
+    bindings: (assignment
+      identifier: (identifier)
+      value: (string
+        (string_fragment)))
+    bindings: (assignment
+      identifier: (identifier)
+      value: (string
+        (string_fragment)))
+    bindings: (assignment
+      identifier: (identifier)
+      value: (string
+        (string_fragment)))
+    body: (tuple)))
 
-=====================================
+====================================
 Strings with simple escape sequences
-=====================================
+====================================
 
-newline = "\n"
-carriage_return = "\r"
-tab = "\t"
-backslash = "\\"
-double_quote = "\""
-surrounded = "with \"surrounding\" quotes"
+let
+  newline = "\n";
+  carriage_return = "\r";
+  tab = "\t";
+  backslash = "\\";
+  double_quote = "\"";
+  surrounded = "with \"surrounding\" quotes";
+in ()
 
 ---
 
 (source_file
-  (constant
-    identifier: (identifier)
-    value: (string
-      (escape_sequence)))
-  (constant
-    identifier: (identifier)
-    value: (string
-      (escape_sequence)))
-  (constant
-    identifier: (identifier)
-    value: (string
-      (escape_sequence)))
-  (constant
-    identifier: (identifier)
-    value: (string
-      (escape_sequence)))
-  (constant
-    identifier: (identifier)
-    value: (string
-      (escape_sequence)))
-  (constant
-    identifier: (identifier)
-    value: (string
-      (string_fragment)
-      (escape_sequence)
-      (string_fragment)
-      (escape_sequence)
-      (string_fragment))))
+  (bind_expression
+    bindings: (assignment
+      identifier: (identifier)
+      value: (string
+        (escape_sequence)))
+    bindings: (assignment
+      identifier: (identifier)
+      value: (string
+        (escape_sequence)))
+    bindings: (assignment
+      identifier: (identifier)
+      value: (string
+        (escape_sequence)))
+    bindings: (assignment
+      identifier: (identifier)
+      value: (string
+        (escape_sequence)))
+    bindings: (assignment
+      identifier: (identifier)
+      value: (string
+        (escape_sequence)))
+    bindings: (assignment
+      identifier: (identifier)
+      value: (string
+        (string_fragment)
+        (escape_sequence)
+        (string_fragment)
+        (escape_sequence)
+        (string_fragment)))
+    body: (tuple)))
 
-=======
+======
 Tuples
-=======
+======
 
-unit = ()
-double = (0, x)
-triple = (5, "string", true)
+let
+  unit = ();
+  double = (0, x);
+  triple = (5, "string", true);
+in ()
 
 ---
 
 (source_file
-  (constant
-    identifier: (identifier)
-    value: (tuple))
-  (constant
-    identifier: (identifier)
-    value: (tuple
-      elements: (number)
-      elements: (identifier)))
-  (constant
-    identifier: (identifier)
-    value: (tuple
-      elements: (number)
-      elements: (string
-        (string_fragment))
-      elements: (boolean))))
+  (bind_expression
+    bindings: (assignment
+      identifier: (identifier)
+      value: (tuple))
+    bindings: (assignment
+      identifier: (identifier)
+      value: (tuple
+        elements: (number)
+        elements: (identifier)))
+    bindings: (assignment
+      identifier: (identifier)
+      value: (tuple
+        elements: (number)
+        elements: (string
+          (string_fragment))
+        elements: (boolean)))
+    body: (tuple)))
 
-==============
+=============
 Nested tuples
-==============
+=============
 
-nested = (0, (1, 2), (3, (4, 5)))
+(0, (1, 2), (3, (4, 5)))
 
 -----
 
 (source_file
-  (constant
-    identifier: (identifier)
-    value: (tuple
+  (tuple
+    elements: (number)
+    elements: (tuple
+      elements: (number)
+      elements: (number))
+    elements: (tuple
       elements: (number)
       elements: (tuple
         elements: (number)
-        elements: (number))
-      elements: (tuple
-        elements: (number)
-        elements: (tuple
-          elements: (number)
-          elements: (number))))))
+        elements: (number)))))
