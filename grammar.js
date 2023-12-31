@@ -9,7 +9,9 @@ module.exports = grammar({
   word: ($) => $.identifier,
 
   rules: {
-    source_file: ($) => repeat(choice($.constant, $.function)),
+    source_file: ($) =>
+      repeat(choice($.bind_expression, $.constant, $.function)),
+
     identifier: () => /[a-zA-Z_][0-9a-zA-Z_-]*/,
     constant: ($) =>
       seq(
@@ -82,6 +84,22 @@ module.exports = grammar({
         field("identifier", $.identifier),
         field("parameters", repeat1($.identifier)),
         "=",
+        field("body", $._expression)
+      ),
+
+    assignment: ($) =>
+      seq(
+        field("identifier", $.identifier),
+        "=",
+        field("value", $._expression),
+        ";"
+      ),
+
+    bind_expression: ($) =>
+      seq(
+        "let",
+        field("bindings", repeat1($.assignment)),
+        "in",
         field("body", $._expression)
       ),
   },

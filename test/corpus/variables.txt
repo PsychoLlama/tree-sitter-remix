@@ -1,0 +1,45 @@
+==========================
+Single variable assignment
+==========================
+
+let x = 10; in x
+
+---
+
+(source_file
+  (bind_expression
+    bindings: (assignment
+      identifier: (identifier)
+      value: (number))
+    body: (identifier)))
+
+============================
+Multiple variable assignment
+============================
+
+let x = 10; y = 20; in x
+
+---
+
+(source_file
+  (bind_expression
+    bindings: (assignment
+      identifier: (identifier)
+      value: (number))
+    bindings: (assignment
+      identifier: (identifier)
+      value: (number))
+    body: (identifier)))
+
+==============================
+No variable assignment (fails)
+==============================
+
+let in 10
+
+---
+
+(source_file
+  (ERROR
+    (identifier)
+    (number)))
