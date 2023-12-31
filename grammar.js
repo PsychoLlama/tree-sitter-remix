@@ -55,6 +55,7 @@ module.exports = grammar({
         $.call_expression,
         $.tuple,
         $.bind_expression,
+        $.lambda,
         $._primitive,
         $._parenthesized_expression,
         prec(precedence.identifier, $.identifier)
@@ -71,12 +72,11 @@ module.exports = grammar({
         )
       ),
 
-    // Functions
-    function: ($) =>
+    lambda: ($) =>
       seq(
-        field("identifier", $.identifier),
-        field("parameters", repeat1($.identifier)),
-        "=",
+        "|",
+        field("parameters", repeat($.identifier)),
+        "|",
         field("body", $._expression)
       ),
 

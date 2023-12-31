@@ -1,6 +1,6 @@
-========================
+=======================
 Traditional Identifiers
-========================
+=======================
 
 let
   name = true;
@@ -31,9 +31,9 @@ in true
       value: (boolean))
     body: (boolean)))
 
-==========================
+=========================
 Identifiers with capitals
-==========================
+=========================
 
 let
   camelCase = true;
@@ -56,9 +56,9 @@ in true
       value: (boolean))
     body: (boolean)))
 
-=========================
+========================
 Identifiers with numbers
-=========================
+========================
 
 let
   trailing-number012 = true;
@@ -77,9 +77,9 @@ in true
     value: (boolean))
   body: (boolean)))
 
-====================
+===================
 Invalid identifiers
-====================
+===================
 
 let
   0leadingnumber = true;

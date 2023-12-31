@@ -1,0 +1,55 @@
+=================
+Lambda definition
+=================
+
+|a| ()
+
+---
+
+(source_file
+  (lambda
+    parameters: (identifier)
+    body: (tuple)))
+
+===================
+Multiple parameters
+===================
+
+|a b c| ()
+
+---
+
+(source_file
+  (lambda
+    parameters: (identifier)
+    parameters: (identifier)
+    parameters: (identifier)
+    body: (tuple)))
+
+================
+Unused parameter
+================
+
+|_| true
+
+---
+
+(source_file
+  (lambda
+    parameters: (identifier)
+    body: (boolean)))
+
+====================
+Immediate invocation
+====================
+
+(|a| a) 1
+
+---
+
+(source_file
+  (call_expression
+    callee: (lambda
+      parameters: (identifier)
+      body: (identifier))
+    arguments: (number)))
