@@ -6,11 +6,15 @@ const precedence = {
 module.exports = grammar({
   name: "remix",
 
-  word: ($) => $.identifier,
+  word: ($) => $._lexical_identifier,
 
   rules: {
     source_file: ($) => $._expression,
-    identifier: () => /[a-zA-Z_][0-9a-zA-Z_-]*/,
+
+    // Identifiers
+    identifier: ($) => choice($._lexical_identifier, $._dynamic_identifier),
+    _lexical_identifier: () => /[a-zA-Z_][0-9a-zA-Z_-]*/,
+    _dynamic_identifier: ($) => seq("@", $._lexical_identifier),
 
     // Primitives
     _primitive: ($) => choice($.string, $.number, $.boolean),

@@ -78,6 +78,21 @@ in true
   body: (boolean)))
 
 ===================
+Dynamic identifiers
+===================
+
+let @production = true; in true
+
+---
+
+(source_file
+  (bind_expression
+    bindings: (assignment
+      identifier: (identifier)
+      value: (boolean))
+    body: (boolean)))
+
+===================
 Invalid identifiers
 ===================
 
