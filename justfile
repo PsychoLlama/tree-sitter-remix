@@ -2,9 +2,9 @@ default:
   just --list
 
 # Check parser output against the test corpus
-test: generate
+test: build
   tree-sitter test
 
 # Generate the `src` directory
-generate:
+build:
   tree-sitter generate --abi 13

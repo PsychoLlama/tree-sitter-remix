@@ -16,7 +16,8 @@
   },
   "scripts": {
     "test": "tree-sitter test",
-    "build:gyp": "node-gyp rebuild"
+    "build:gyp": "node-gyp rebuild",
+    "prepack": "nix develop --command just build"
   },
   "tree-sitter": [
     {
