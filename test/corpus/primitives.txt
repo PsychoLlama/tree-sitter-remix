@@ -3,8 +3,8 @@ Booleans
 ========
 
 let
-  first = true;
-  second = false;
+  first = true,
+  second = false,
 in ()
 
 ---
@@ -24,10 +24,10 @@ Numbers
 =======
 
 let
-  first = 1234567890;
-  second = 1.0;
-  third = 0.0000;
-  fourth = 111.0;
+  first = 1234567890,
+  second = 1.0,
+  third = 0.0000,
+  fourth = 111.0,
 in ()
 
 ---
@@ -54,10 +54,10 @@ Strings
 =======
 
 let
-  empty = "";
-  single = "a";
-  multiple = "with content";
-  weird = "with-!@#$%^&*()?/|{}[]`~'<>:;,.symbols";
+  empty = "",
+  single = "a",
+  multiple = "with content",
+  weird = "with-!@#$%^&*()?/|{}[]`~'<>:;,.symbols",
 in ()
 
 ---
@@ -86,12 +86,12 @@ Strings with simple escape sequences
 ====================================
 
 let
-  newline = "\n";
-  carriage_return = "\r";
-  tab = "\t";
-  backslash = "\\";
-  double_quote = "\"";
-  surrounded = "with \"surrounding\" quotes";
+  newline = "\n",
+  carriage_return = "\r",
+  tab = "\t",
+  backslash = "\\",
+  double_quote = "\"",
+  surrounded = "with \"surrounding\" quotes",
 in ()
 
 ---
@@ -133,9 +133,9 @@ Tuples
 ======
 
 let
-  unit = ();
-  double = (0, x);
-  triple = (5, "string", true);
+  unit = (),
+  double = (0, x),
+  triple = (5, "string", true),
 in ()
 
 ---

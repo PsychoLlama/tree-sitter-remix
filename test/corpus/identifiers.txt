@@ -3,11 +3,11 @@ Traditional Identifiers
 =======================
 
 let
-  name = true;
-  under_score = true;
-  kebab-case = true;
-  _private = true;
-  x = true;
+  name = true,
+  under_score = true,
+  kebab-case = true,
+  _private = true,
+  x = true,
 in true
 
 ---
@@ -36,9 +36,9 @@ Identifiers with capitals
 =========================
 
 let
-  camelCase = true;
-  PascalCase = true;
-  ALL_CAPS = true;
+  camelCase = true,
+  PascalCase = true,
+  ALL_CAPS = true,
 in true
 
 ---
@@ -61,8 +61,8 @@ Identifiers with numbers
 ========================
 
 let
-  trailing-number012 = true;
-  middle_1Number = true;
+  trailing-number012 = true,
+  middle_1Number = true,
 in true
 
 ---
@@ -81,7 +81,7 @@ in true
 Dynamic identifiers
 ===================
 
-let @production = true; in true
+let @production = true in true
 
 ---
 
@@ -97,8 +97,8 @@ Invalid identifiers
 ===================
 
 let
-  0leadingnumber = true;
-  -leadinghyphen = true;
+  0leadingnumber = true,
+  -leadinghyphen = true,
 in true
 
 ---

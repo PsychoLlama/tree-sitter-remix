@@ -2,7 +2,7 @@
 Single variable assignment
 ==========================
 
-let x = 10; in x
+let x = 10 in x
 
 ---
 
@@ -17,7 +17,7 @@ let x = 10; in x
 Multiple variable assignment
 ============================
 
-let x = 10; y = 20; in x
+let x = 10, y = 20 in x
 
 ---
 
@@ -36,7 +36,7 @@ Bindings inside other bindings
 ==============================
 
 let x =
-  let y = 10; in y;
+  let y = 10 in y
 in x
 
 ---

@@ -89,14 +89,18 @@ module.exports = grammar({
       seq(
         field("identifier", $.identifier),
         "=",
-        field("value", $._expression),
-        ";"
+        field("value", $._expression)
       ),
 
+    // Bind expressions MUST have at least one assignment and MAY end with
+    // a trailing comma.
     bind_expression: ($) =>
       seq(
         "let",
-        field("bindings", repeat1($.assignment)),
+        field(
+          "bindings",
+          seq($.assignment, repeat(seq(",", $.assignment)), optional(","))
+        ),
         "in",
         field("body", $._expression)
       ),
