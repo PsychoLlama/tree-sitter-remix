@@ -55,6 +55,7 @@ module.exports = grammar({
         $.call_expression,
         $.tuple,
         $.bind_expression,
+        $.condition,
         $.lambda,
         $._primitive,
         $._parenthesized_expression,
@@ -94,6 +95,17 @@ module.exports = grammar({
         field("bindings", repeat1($.assignment)),
         "in",
         field("body", $._expression)
+      ),
+
+    // Conditions MUST have an `else` clause.
+    condition: ($) =>
+      seq(
+        "if",
+        field("test", $._expression),
+        "then",
+        field("pass", $._expression),
+        "else",
+        field("fail", $._expression)
       ),
   },
 });

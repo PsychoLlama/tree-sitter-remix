@@ -1,0 +1,48 @@
+=================
+Literal condition
+=================
+
+if true then 1 else "str"
+
+---
+
+(source_file
+  (condition
+    test: (boolean)
+    pass: (number)
+    fail: (string
+      (string_fragment))))
+
+==============================
+Condition with test expression
+==============================
+
+if (eq 1 2) then 1 else 2
+
+---
+
+(source_file
+  (condition
+    test: (call_expression
+      callee: (identifier)
+      arguments: (number)
+      arguments: (number))
+    pass: (number)
+    fail: (number)))
+
+==============================
+Condition with expression body
+==============================
+
+if false then 1 else (add 1 2)
+
+---
+
+(source_file
+  (condition
+    test: (boolean)
+    pass: (number)
+    fail: (call_expression
+      callee: (identifier)
+      arguments: (number)
+      arguments: (number))))
