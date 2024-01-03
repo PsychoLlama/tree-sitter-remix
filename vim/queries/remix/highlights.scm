@@ -1,4 +1,5 @@
 [
+ "sandbox"
  "let"
  "in"
 ] @keyword

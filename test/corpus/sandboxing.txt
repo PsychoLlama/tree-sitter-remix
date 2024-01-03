@@ -1,0 +1,13 @@
+=======================
+Sandboxed function call
+=======================
+
+sandbox f 10
+
+---
+
+(source_file
+  (sandbox
+    body: (call_expression
+      callee: (identifier)
+      arguments: (number))))

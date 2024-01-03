@@ -61,6 +61,7 @@ module.exports = grammar({
         $.bind_expression,
         $.condition,
         $.lambda,
+        $.sandbox,
         $._primitive,
         $._parenthesized_expression,
         prec(precedence.identifier, $.identifier)
@@ -84,6 +85,8 @@ module.exports = grammar({
         "|",
         field("body", $._expression)
       ),
+
+    sandbox: ($) => seq("sandbox", field("body", $.call_expression)),
 
     assignment: ($) =>
       seq(
